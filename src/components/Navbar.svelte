@@ -20,6 +20,10 @@
         }
     };
 
+    const clear = () => {
+        notesStored.set([]);
+    };
+
     let showModal = false;
 
     const openModal = () => {
@@ -36,6 +40,7 @@
 	<nav-title>Ypsylon</nav-title>
 	<separator/>
 	<nav-item on:click={openModal}>about</nav-item>
+	<nav-item on:click={clear}>clear</nav-item>
     <nav-item on:click={getJson}>Get</nav-item>
         <input type="file" accept=".json" on:change="{(e) => jsonFile = e.target.files[0]}" />
         <nav-item on:click={setJson}>Set</nav-item>

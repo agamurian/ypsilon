@@ -12,11 +12,11 @@ import { notesStored } from '/stores.js';
     },
   ];
 
-  function addNote(notes){
+  function addNote(){
 	let newNotes = $notesStored;
     newNotes.push({
-    'title':'title',
-    'content':'content'
+    'title':'',
+    'content':''
     });
 notesStored.set(newNotes)
 return newNotes
@@ -82,6 +82,7 @@ return newNotes
     width: 100%;
     max-width: 1000px;
     padding: calc(0.25em + 15vw - 10vh);
+    padding-top: 4em;
   }
 
   .code {
@@ -107,7 +108,7 @@ return newNotes
     </div>
 </div>
   {/each}
-  <div class='box fira-sans button' on:click={() => (notes = addNote(notes))}> + add note</div>
+  <div class='box fira-sans button' on:click={addNote}> + add note</div>
 
 </div>
 </div>
