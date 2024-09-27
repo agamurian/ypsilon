@@ -13,7 +13,7 @@ import { notesStored } from '/stores.js';
   ];
 
   function addNote(notes){
-	let newNotes = notes;
+	let newNotes = $notesStored;
     newNotes.push({
     'title':'title',
     'content':'content'
