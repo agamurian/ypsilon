@@ -11,7 +11,7 @@
 
 <style>
   :global(*) {
-	  transition: 0.125s ease;
+	  transition: 0.25s ease;
 	}
   :global(button) {
 	font-face: 'Fira Sans'

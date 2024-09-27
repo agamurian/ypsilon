@@ -37,10 +37,8 @@
 	<separator/>
 	<nav-item on:click={openModal}>about</nav-item>
     <nav-item on:click={getJson}>Get</nav-item>
-    <nav-item>
         <input type="file" accept=".json" on:change="{(e) => jsonFile = e.target.files[0]}" />
-        <button on:click={setJson}>Set</button>
-    </nav-item>
+        <nav-item on:click={setJson}>Set</nav-item>
 
 </nav>
 <Modal isOpen={showModal} onClose={closeModal}>
@@ -86,7 +84,7 @@
 		top: 0;
 		width: 100vw;
 		margin: 0;
-		padding: 0;
+		padding: 0.25em 0.5em;
 		border-bottom: 3px dotted #8884;
 		border-top: 3px solid #884;
 		background-color: black;
