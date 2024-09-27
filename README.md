@@ -1,22 +1,10 @@
-# Svelte Template Parcel
-
-This is a project template for Svelte apps with Parcel.js  
-
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
-
-```bash
-npx degit alex-parra/svelte-template-parcel svelteParcel
-cd svelteParcel
-```
-
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
-
-## Get started
-
-Install the dependencies...
+# Ypsilon
+quick local client-side note taking app
+hosted at:
+[agamurian](https://ypsilon.agamurian.com)
 
 ```bash
-cd svelteParcel
+cd ypsilion
 yarn install
 ```
 
@@ -37,4 +25,4 @@ Run `yarn build` and then deploy the contents for the `dist` folder
 
 ---
 
-Created by [Alex Parra](https://github.com/alex-parra) on 2019-10-20.  
+Created by [agamurian](https://github.com/agamurian) on 2024-10-20.  
