@@ -1,5 +1,6 @@
 
 <script>
+import { notesStored } from '/stores.js';
   let notes = [
     {
     'title':'title',
@@ -17,6 +18,7 @@
     'title':'title',
     'content':'content'
     });
+notesStored.set(newNotes)
 return newNotes
   }
 </script>
@@ -97,7 +99,7 @@ return newNotes
 
 <div class='container'>
 <div class="helloSvelte">
-  {#each notes as note}
+  {#each $notesStored as note}
 <div class="box">
 	<h4 class='fira-sans' bind:innerHTML={note['title']} contenteditable="true"></h4>
     <div class="box">

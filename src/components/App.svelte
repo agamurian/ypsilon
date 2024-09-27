@@ -10,10 +10,17 @@
 </script>
 
 <style>
+  :global(*) {
+	  transition: 0.125s ease;
+	}
+  :global(button) {
+	font-face: 'Fira Sans'
+  }
   :global(body) {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    font-face: 'Fira Sans'
   }
 
   h1 {
