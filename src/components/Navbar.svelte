@@ -1,5 +1,6 @@
 <script>
     import { notesStored } from '/stores.js';
+    import { title } from '/stores.js';
     import { downloadJson, uploadJson } from '/jsonUtils.js';
     import { onMount } from 'svelte';
     import Modal from './Modal.svelte';
@@ -8,7 +9,7 @@
 
     const getJson = () => {
         notesStored.subscribe(value => {
-            downloadJson(value, 'notes.json');
+            downloadJson(value, $title+'.json');
         })();
     };
 
@@ -16,6 +17,7 @@
         if (jsonFile) {
             uploadJson(jsonFile, (data) => {
                 notesStored.set(data);
+							title.set(jsonFile.name.replace('.json',''))
             });
         }
     };
@@ -32,16 +34,28 @@
 
     const closeModal = () => {
         showModal = false;
-    };
+		};
+
+	// somthing on change of value: update handler, which clears it from tags
+	function removeHtmlTags(str) {
+    return str.replace(/<[^>]*>/g, '');
+	}
+	$: { 
+		$title;
+			if($title.includes('<') && $title.includes('>')){
+			title.set(removeHtmlTags($title))
+		}
+		console.log($title)
+	}
 </script>
 
 
 <nav>
-	<nav-title>Ypsylon</nav-title>
+	<nav-title bind:innerHTML={$title} contenteditable="true"/>
 	<separator/>
 	<nav-item on:click={openModal}>about</nav-item>
 	<nav-item on:click={clear}>clear</nav-item>
-    <nav-item on:click={getJson}>Get</nav-item>
+    <nav-item on:click={getJson}>Get {$title}.json</nav-item>
         <input type="file" accept=".json" on:change="{(e) => jsonFile = e.target.files[0]}" />
         <nav-item on:click={setJson}>Set</nav-item>
 
@@ -67,12 +81,15 @@
 		cursor: pointer;
 		display: flex;
 		font-weight: black;
-		width: auto;
-		flex: 0;
-		border-radius: 50%;
-		padding: 0.5em;
+		width: 100%;
+		flex: 1;
+		border-radius: 0.5em;
+		padding: 0.25em;
+		margin: 0.25em;
 		font-size: 1em;
+		outline: none;
 	}
+	nav-title:focus {align-self: start;}
 	separator {
 		display: flex;
 		flex: 1;
@@ -84,7 +101,7 @@
 		cursor: pointer;
 		display: flex;
 		flex: 0;
-		width: auto;
+		white-space: nowrap;
 		padding: 0.35em 0.75em 0.05em 0.75em;
 		margin: 0.45em;
 		background-color: #663;

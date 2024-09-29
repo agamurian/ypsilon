@@ -19,4 +19,5 @@ function createPersistentStore(key, initialValue) {
 
 // Create the notesStored store
 export const notesStored = createPersistentStore('notesStored', [])
+export const title = createPersistentStore('title', 'Notes')
 

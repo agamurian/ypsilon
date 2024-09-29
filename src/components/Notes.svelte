@@ -1,6 +1,7 @@
 
 <script>
 import { notesStored } from '/stores.js';
+import { title } from '/stores.js';
   let notes = [
     {
     'title':'title',
