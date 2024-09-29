@@ -47,8 +47,20 @@
 
 </nav>
 <Modal isOpen={showModal} onClose={closeModal}>
-    <h2>Hello from the Modal!</h2>
-    <p>This is a simple modal example using Svelte.</p>
+    <h2>Ypsilon is simple note taking app</h2>
+    <hr>
+    <p>You can add notes, every note have title and content fields</p>
+    <p>Contents of both is html. so you can paste formatted content here</p>
+    <p>Notes are persistent via local storage, so if you reload page or open new tab - you still have your notes</p>
+    <p>You can download/upload notes in form of json</p>
+    <hr>
+    <p>its a client side app, so no server needed, it works offline</p>
+    <p>so its free forever, as it does not store anything</p>
+    <hr>
+    <p>Ypsilon is made for fast notes and meant to be so simple, you dont even see its there.</p>
+    <hr>
+    <p>made by: <a href="https://agamurian.com">agamurian</a></p>
+    <p>builded with svelte and parcel, open source: <a href="https://github.com/agamurian/ypsilon">github</a></p>
 </Modal>
 <style>
 	nav-title {
